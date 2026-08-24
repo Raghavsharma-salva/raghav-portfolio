@@ -317,7 +317,7 @@ export function CommandPalette({ isOpen, onClose, onOpenResume, onOpenTerminal, 
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 pb-6 overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-start justify-center pt-10 sm:pt-24 px-3 sm:px-4 pb-6 overflow-y-auto">
         {/* Frosted Obsidian Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -333,12 +333,12 @@ export function CommandPalette({ isOpen, onClose, onOpenResume, onOpenTerminal, 
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: -10 }}
           transition={{ type: 'spring', damping: 28, stiffness: 340 }}
-          className="relative w-full max-w-2xl rounded-3xl liquid-glass-elevated border border-white/20 shadow-2xl overflow-hidden z-10 overscroll-contain"
+          className="relative w-full max-w-2xl rounded-2xl sm:rounded-3xl liquid-glass-elevated border border-white/20 shadow-2xl overflow-hidden z-10 overscroll-contain"
           data-lenis-prevent="true"
           onWheel={(e) => e.stopPropagation()}
         >
           {/* Top Search Input Box */}
-          <div className="relative flex items-center px-5 sm:px-6 py-4 border-b border-white/10 bg-white/[0.02]">
+          <div className="relative flex items-center px-4 sm:px-6 py-3.5 sm:py-4 border-b border-white/10 bg-white/[0.02]">
             <Search size={18} className="text-zinc-400 shrink-0" />
             <input
               ref={inputRef}

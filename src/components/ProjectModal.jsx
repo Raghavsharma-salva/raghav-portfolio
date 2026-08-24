@@ -44,17 +44,17 @@ export function ProjectModal({ project, isOpen, onClose }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 26, stiffness: 300 }}
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl liquid-glass-elevated p-6 sm:p-8 md:p-10 shadow-2xl z-10 overscroll-contain"
+            className="relative w-full max-w-4xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl liquid-glass-elevated p-5 sm:p-8 md:p-10 shadow-2xl z-10 overscroll-contain"
             data-lenis-prevent="true"
             onWheel={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 p-2 rounded-full bg-white/5 hover:bg-white/15 text-zinc-400 hover:text-white transition-colors"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full bg-white/5 hover:bg-white/15 text-zinc-400 hover:text-white transition-colors"
               aria-label="Close project modal"
             >
-              <X size={20} />
+              <X size={18} />
             </button>
 
             {/* Header Badge & Category */}
@@ -134,17 +134,17 @@ export function ProjectModal({ project, isOpen, onClose }) {
             </div>
 
             {/* Action Buttons */}
-            <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex flex-wrap items-center gap-3">
+            <div className="mt-8 sm:mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 sm:gap-4">
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
                 {project.demo && (
                   <a
                     href={project.demo}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-black text-xs sm:text-sm font-semibold transition-colors shadow-lg shadow-white/10 hover:bg-zinc-200"
+                    className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-white text-black text-xs sm:text-sm font-semibold transition-colors shadow-lg shadow-white/10 hover:bg-zinc-200 w-full min-[420px]:w-auto"
                   >
                     <span>Launch Live Demo</span>
-                    <ArrowUpRight size={15} />
+                    <ArrowUpRight size={14} />
                   </a>
                 )}
                 {project.github && (
@@ -152,9 +152,9 @@ export function ProjectModal({ project, isOpen, onClose }) {
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl liquid-glass hover:bg-white/15 text-zinc-200 text-xs sm:text-sm font-medium transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl liquid-glass hover:bg-white/15 text-zinc-200 text-xs sm:text-sm font-medium transition-colors w-full min-[420px]:w-auto"
                   >
-                    <GithubIcon size={15} />
+                    <GithubIcon size={14} />
                     <span>View Repository</span>
                   </a>
                 )}
@@ -162,7 +162,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
 
               <button
                 onClick={onClose}
-                className="px-4 py-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors"
+                className="px-3 py-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors cursor-pointer"
               >
                 Close (Esc)
               </button>

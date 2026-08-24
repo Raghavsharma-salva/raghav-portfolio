@@ -36,14 +36,14 @@ export function Projects() {
         </div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
           {CATEGORIES.map((cat) => {
             const isActive = selectedCategory === cat;
             return (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`relative px-4 py-1.5 rounded-full text-xs font-mono transition-all ${
+                className={`relative px-3 sm:px-4 py-1.5 rounded-full text-xs font-mono transition-all cursor-pointer ${
                   isActive
                     ? 'bg-white text-black font-semibold shadow-md shadow-white/10'
                     : 'liquid-glass text-zinc-400 hover:text-white hover:border-white/25'
@@ -58,7 +58,7 @@ export function Projects() {
       </div>
 
       {/* Projects Grid / Editorial Layout */}
-      <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+      <div className="mt-8 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
         {filteredProjects.map((project, index) => (
           <ProjectCard
             key={project.id}

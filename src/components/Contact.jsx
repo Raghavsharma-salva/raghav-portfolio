@@ -55,33 +55,33 @@ export function Contact({ onShowToast }) {
         {/* Left Column: Heading & Direct Links */}
         <div className="lg:col-span-7 flex flex-col justify-between">
           <div>
-            <h2 className="font-display font-bold text-4xl sm:text-6xl md:text-7xl tracking-tight text-white leading-[1.08]">
+            <h2 className="font-display font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.08]">
               Let's build <br />
               <span className="text-gradient-red font-extrabold">something real.</span>
             </h2>
 
-            <p className="mt-6 text-base sm:text-lg md:text-xl text-zinc-300 max-w-lg leading-relaxed font-normal">
+            <p className="mt-4 sm:mt-6 text-sm sm:text-lg md:text-xl text-zinc-300 max-w-lg leading-relaxed font-normal">
               Have an idea, systems project, C++ inquiry, Linux setup, or hackathon collaboration? I'm always open to connecting with engineers and builders.
             </p>
 
             {/* Quick Email Pill & Copy Action */}
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="inline-flex items-center gap-3 px-6 sm:px-8 py-4 rounded-full bg-white text-black font-semibold text-sm sm:text-base hover:bg-zinc-200 shadow-xl shadow-white/10 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2.5 sm:gap-3 px-5 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white text-black font-semibold text-xs sm:text-base hover:bg-zinc-200 shadow-xl shadow-white/10 transition-all hover:scale-[1.02] active:scale-[0.98] w-full min-[400px]:w-auto"
                 data-cursor="pointer"
               >
-                <Mail size={18} />
+                <Mail size={16} />
                 <span>Email Me</span>
               </a>
 
               <button
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-2 px-5 py-4 rounded-full liquid-glass hover:bg-white/10 text-zinc-200 text-sm font-mono transition-all hover:scale-[1.02]"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 sm:py-4 rounded-full liquid-glass hover:bg-white/10 text-zinc-200 text-xs sm:text-sm font-mono transition-all hover:scale-[1.02] w-full min-[400px]:w-auto cursor-pointer"
                 data-cursor="pointer"
                 title="Copy email to clipboard"
               >
-                {copied ? <CheckCircle2 size={16} className="text-white" /> : <Copy size={16} />}
+                {copied ? <CheckCircle2 size={15} className="text-white" /> : <Copy size={15} />}
                 <span>{copied ? 'Copied!' : 'Copy Email'}</span>
               </button>
             </div>

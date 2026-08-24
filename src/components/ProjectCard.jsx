@@ -218,7 +218,7 @@ export function ProjectCard({ project, index, onSelectProject }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.7, delay: index * 0.1 }}
-      className="group relative rounded-3xl liquid-glass-interactive p-6 sm:p-8 md:p-10 transition-all duration-300 flex flex-col justify-between cursor-pointer spotlight-card"
+      className="group relative rounded-2xl sm:rounded-3xl liquid-glass-interactive p-5 sm:p-8 md:p-10 transition-all duration-300 flex flex-col justify-between cursor-pointer spotlight-card"
       onClick={() => {
         sound.playGlassClick();
         onSelectProject(project);
@@ -228,12 +228,12 @@ export function ProjectCard({ project, index, onSelectProject }) {
     >
       {/* Top Header */}
       <div>
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-zinc-200 font-semibold px-3 py-1 rounded-full bg-white/10 border border-white/15">
+        <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <span className="font-mono text-[11px] sm:text-xs text-zinc-200 font-semibold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/10 border border-white/15">
               {project.badge}
             </span>
-            <span className="text-xs font-mono text-zinc-500">
+            <span className="text-[11px] sm:text-xs font-mono text-zinc-500">
               0{index + 1} // {project.category}
             </span>
           </div>
@@ -269,14 +269,14 @@ export function ProjectCard({ project, index, onSelectProject }) {
         </div>
 
         {/* Title & Tagline */}
-        <h3 className="font-display font-bold text-2xl sm:text-3xl text-white group-hover:text-zinc-200 transition-colors flex items-center justify-between">
+        <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-white group-hover:text-zinc-200 transition-colors flex items-center justify-between">
           <span>{project.title}</span>
-          <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-zinc-400 group-hover:text-black group-hover:bg-white transition-all">
-            <ArrowUpRight size={16} />
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 flex items-center justify-center text-zinc-400 group-hover:text-black group-hover:bg-white transition-all">
+            <ArrowUpRight size={15} />
           </div>
         </h3>
 
-        <p className="mt-3 text-sm sm:text-base text-zinc-400 leading-relaxed font-normal">
+        <p className="mt-2.5 sm:mt-3 text-xs sm:text-base text-zinc-400 leading-relaxed font-normal">
           {project.description}
         </p>
       </div>

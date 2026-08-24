@@ -122,7 +122,7 @@ export function ResumeSection({ isModalOpen, onToggleModal }) {
   return (
     <>
       <section id="resume" className="relative py-20 sm:py-28 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto z-10">
-        <div className="relative overflow-hidden p-8 sm:p-12 md:p-16 rounded-3xl liquid-glass-elevated border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="relative overflow-hidden p-6 sm:p-12 md:p-16 rounded-2xl sm:rounded-3xl liquid-glass-elevated border border-white/20 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <div className="w-6 h-[2px] bg-red-500 shadow-sm shadow-red-500/80" />
@@ -130,30 +130,30 @@ export function ResumeSection({ isModalOpen, onToggleModal }) {
                 CURRICULUM VITAE
               </span>
             </div>
-            <h2 className="mt-1 font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white">
+            <h2 className="mt-1 font-display font-bold text-2xl sm:text-4xl md:text-5xl text-white">
               Verified Technical Background
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-zinc-400 max-w-lg font-normal">
+            <p className="mt-2.5 sm:mt-3 text-xs sm:text-base text-zinc-400 max-w-lg font-normal">
               Review my 2nd Year CSE academic qualifications, verified project architectures, Top 8 hackathon ranking, and technical toolkit.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4 shrink-0">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 shrink-0 w-full sm:w-auto">
             <button
               onClick={() => onToggleModal(true)}
-              className="inline-flex items-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white text-black font-semibold text-sm sm:text-base hover:bg-zinc-200 transition-all hover:scale-[1.02] shadow-xl shadow-white/15"
+              className="inline-flex items-center justify-center gap-2 sm:gap-2.5 px-5 sm:px-8 py-3 sm:py-4 rounded-full bg-white text-black font-semibold text-xs sm:text-base hover:bg-zinc-200 transition-all hover:scale-[1.02] shadow-xl shadow-white/15 w-full min-[400px]:w-auto cursor-pointer"
               data-cursor="pointer"
             >
-              <Eye size={17} />
+              <Eye size={16} />
               <span>View Resume</span>
             </button>
 
             <button
               onClick={handleDownload}
-              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full liquid-glass hover:bg-white/10 text-white font-medium text-sm sm:text-base transition-all hover:scale-[1.02]"
+              className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-4 rounded-full liquid-glass hover:bg-white/10 text-white font-medium text-xs sm:text-base transition-all hover:scale-[1.02] w-full min-[400px]:w-auto cursor-pointer"
               data-cursor="pointer"
             >
-              <Download size={16} />
+              <Download size={15} />
               <span>Download PDF</span>
             </button>
           </div>
@@ -164,7 +164,7 @@ export function ResumeSection({ isModalOpen, onToggleModal }) {
       <AnimatePresence>
         {isModalOpen && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto overscroll-contain"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-10 overflow-y-auto overscroll-contain"
             data-lenis-prevent="true"
             onWheel={(e) => e.stopPropagation()}
           >
@@ -181,7 +181,7 @@ export function ResumeSection({ isModalOpen, onToggleModal }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: 'spring', damping: 26, stiffness: 300 }}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl liquid-glass-elevated p-6 sm:p-10 shadow-2xl z-10 border border-white/20 overscroll-contain"
+              className="relative w-full max-w-4xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl liquid-glass-elevated p-5 sm:p-10 shadow-2xl z-10 border border-white/20 overscroll-contain"
               data-lenis-prevent="true"
               onWheel={(e) => e.stopPropagation()}
             >

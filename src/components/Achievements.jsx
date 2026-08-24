@@ -41,18 +41,18 @@ export function Achievements() {
         </div>
 
         {/* 4 Pillars Summary Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {ACHIEVEMENTS.map((item, idx) => {
             const Icon = getIcon(item.icon);
             return (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-2xl liquid-glass-interactive flex flex-col justify-between group"
+                className="p-4 sm:p-6 rounded-2xl liquid-glass-interactive flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:bg-white/15 transition-colors shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
-                      <Icon size={20} />
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:bg-white/15 transition-colors shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
+                      <Icon size={18} />
                     </div>
                     {item.verifyUrl && (
                       <a
@@ -66,15 +66,15 @@ export function Achievements() {
                       </a>
                     )}
                   </div>
-                  <h3 className="mt-4 font-display font-semibold text-base text-white">
+                  <h3 className="mt-3 sm:mt-4 font-display font-semibold text-sm sm:text-base text-white">
                     {item.title}
                   </h3>
-                  <div className="text-xs font-mono text-zinc-400 mt-1">
+                  <div className="text-[11px] sm:text-xs font-mono text-zinc-400 mt-1">
                     {item.subtitle}
                   </div>
                 </div>
 
-                <p className="mt-4 text-xs text-zinc-400 leading-relaxed">
+                <p className="mt-3 sm:mt-4 text-xs text-zinc-400 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -83,21 +83,21 @@ export function Achievements() {
         </div>
 
         {/* Detailed Verified Certificates Showcase */}
-        <div className="pt-8 border-t border-white/10">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="font-display font-bold text-lg sm:text-xl text-white flex items-center gap-2">
+        <div className="pt-6 sm:pt-8 border-t border-white/10">
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <h3 className="font-display font-bold text-base sm:text-xl text-white flex items-center gap-2">
               <span>Verified Certificate Records</span>
-              <span className="text-xs font-mono px-2.5 py-0.5 rounded-full liquid-glass text-zinc-300">
+              <span className="text-[11px] sm:text-xs font-mono px-2 sm:px-2.5 py-0.5 rounded-full liquid-glass text-zinc-300">
                 Official
               </span>
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
             {CERTIFICATIONS.map((cert) => (
               <div
                 key={cert.id}
-                className="p-6 rounded-2xl liquid-glass-elevated border border-white/15 flex flex-col justify-between group transition-all duration-300 hover:border-white/30"
+                className="p-4 sm:p-6 rounded-2xl liquid-glass-elevated border border-white/15 flex flex-col justify-between group transition-all duration-300 hover:border-white/30"
               >
                 <div>
                   {/* Top Bar with Platform & Date */}

@@ -210,7 +210,7 @@ LinkedIn: ${PERSONAL_INFO.linkedin}`,
       {/* Floating CLI Drawer Launcher Button */}
       <button
         onClick={() => onToggle(!isOpen)}
-        className="fixed bottom-6 right-6 z-40 p-3.5 rounded-full liquid-glass-elevated text-zinc-300 hover:text-white border border-white/20 hover:border-red-500/40 shadow-2xl transition-all hover:scale-105 group cursor-pointer flex items-center gap-2.5 backdrop-blur-2xl"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 p-2.5 sm:p-3.5 rounded-full liquid-glass-elevated text-zinc-300 hover:text-white border border-white/20 hover:border-red-500/40 shadow-2xl transition-all hover:scale-105 group cursor-pointer flex items-center gap-2 sm:gap-2.5 backdrop-blur-2xl"
         title="Open Interactive Systems Terminal (Shortcut: ` or Ctrl+`)"
         data-cursor="pointer"
       >
@@ -218,11 +218,11 @@ LinkedIn: ${PERSONAL_INFO.linkedin}`,
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-80"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500 shadow-sm shadow-red-500/80"></span>
         </span>
-        <TerminalIcon size={16} className="group-hover:text-red-400 transition-colors" />
-        <span className="hidden md:inline font-mono text-xs font-semibold text-zinc-200">
+        <TerminalIcon size={15} className="group-hover:text-red-400 transition-colors" />
+        <span className="hidden min-[480px]:inline font-mono text-xs font-semibold text-zinc-200">
           CLI Terminal
         </span>
-        <span className="hidden md:inline px-1.5 py-0.5 rounded bg-white/10 text-[10px] font-mono text-zinc-400">
+        <span className="hidden sm:inline px-1.5 py-0.5 rounded bg-white/10 text-[10px] font-mono text-zinc-400">
           ~
         </span>
       </button>
@@ -231,7 +231,7 @@ LinkedIn: ${PERSONAL_INFO.linkedin}`,
       <AnimatePresence>
         {isOpen && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 pointer-events-auto overscroll-contain"
+            className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-6 md:p-10 pointer-events-auto overscroll-contain"
             data-lenis-prevent="true"
             onWheel={(e) => e.stopPropagation()}
           >
@@ -250,8 +250,8 @@ LinkedIn: ${PERSONAL_INFO.linkedin}`,
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: 'spring', damping: 28, stiffness: 320 }}
-              className={`relative w-full rounded-3xl liquid-glass-elevated border border-white/20 hover:border-red-500/30 shadow-2xl flex flex-col overflow-hidden z-10 overscroll-contain ${
-                isMaximized ? 'max-w-6xl h-[90vh]' : 'max-w-3xl h-[560px]'
+              className={`relative w-full rounded-2xl sm:rounded-3xl liquid-glass-elevated border border-white/20 hover:border-red-500/30 shadow-2xl flex flex-col overflow-hidden z-10 overscroll-contain ${
+                isMaximized ? 'max-w-6xl h-[92vh] sm:h-[90vh]' : 'max-w-3xl h-[80vh] sm:h-[560px]'
               }`}
               data-lenis-prevent="true"
               onWheel={(e) => e.stopPropagation()}

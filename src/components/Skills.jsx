@@ -55,7 +55,7 @@ export function Skills() {
       </div>
 
       {/* Category Tabs */}
-      <div className="mt-10 flex flex-wrap gap-2 sm:gap-3 border-b border-white/5 pb-6">
+      <div className="mt-8 sm:mt-10 flex flex-wrap gap-1.5 sm:gap-3 border-b border-white/5 pb-4 sm:pb-6">
         {SKILL_CATEGORIES.map((cat) => {
           const Icon = getCategoryIcon(cat.id);
           const isActive = activeTab === cat.id;
@@ -63,14 +63,14 @@ export function Skills() {
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer ${
                 isActive
                   ? 'bg-white text-black font-semibold shadow-md shadow-white/10'
                   : 'liquid-glass text-zinc-400 hover:text-white hover:border-white/20'
               }`}
               data-cursor="pointer"
             >
-              <Icon size={16} className={isActive ? 'text-black' : 'text-zinc-400'} />
+              <Icon size={15} className={isActive ? 'text-black' : 'text-zinc-400'} />
               <span>{cat.name}</span>
             </button>
           );

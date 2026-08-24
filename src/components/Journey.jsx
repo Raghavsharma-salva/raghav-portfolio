@@ -38,7 +38,7 @@ export function Journey() {
       </div>
 
       {/* Connected Timeline Line */}
-      <div className="relative mt-16 pl-6 sm:pl-10 md:pl-12 border-l border-white/10 space-y-12">
+      <div className="relative mt-12 sm:mt-16 pl-6 sm:pl-10 md:pl-12 border-l border-white/10 space-y-8 sm:space-y-12">
         {TIMELINE.map((item, idx) => {
           const Icon = getTimelineIcon(item.type);
           const isPresent = idx === 0;
@@ -54,7 +54,7 @@ export function Journey() {
             >
               {/* Timeline Node (Glowing Red for Present, Silver for past) */}
               <div
-                className={`absolute -left-[31px] sm:-left-[47px] md:-left-[55px] top-1.5 w-6 h-6 rounded-full bg-[#050507] border-2 flex items-center justify-center group-hover:scale-125 transition-all duration-300 ${
+                className={`absolute -left-[36px] sm:-left-[52px] md:-left-[60px] top-1.5 w-6 h-6 rounded-full bg-[#050507] border-2 flex items-center justify-center group-hover:scale-125 transition-all duration-300 ${
                   isPresent
                     ? 'border-red-500 shadow-md shadow-red-500/50'
                     : 'border-white/40 group-hover:border-white shadow-md shadow-white/10'
@@ -70,7 +70,7 @@ export function Journey() {
               </div>
 
               {/* Timeline Content Card */}
-              <div className={`p-6 sm:p-8 rounded-3xl liquid-glass transition-all duration-300 hover:translate-x-1 ${
+              <div className={`p-5 sm:p-8 rounded-2xl sm:rounded-3xl liquid-glass transition-all duration-300 hover:translate-x-1 ${
                 isPresent ? 'hover:border-red-500/30' : 'hover:border-white/25'
               }`}>
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-3">

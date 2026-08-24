@@ -93,21 +93,21 @@ export function About() {
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
         variants={containerVariants}
-        className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
+        className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4"
       >
         {METRICS.map((metric, idx) => (
           <motion.div
             key={idx}
             variants={itemVariants}
-            className="group relative p-6 sm:p-8 rounded-2xl liquid-glass transition-all duration-300 hover:translate-y-[-2px] hover:border-white/25"
+            className="group relative p-4 sm:p-7 md:p-8 rounded-xl sm:rounded-2xl liquid-glass transition-all duration-300 hover:translate-y-[-2px] hover:border-white/25"
           >
-            <div className={`text-3xl sm:text-5xl md:text-6xl font-display font-bold bg-gradient-to-b ${metric.accent} bg-clip-text text-transparent`}>
+            <div className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold bg-gradient-to-b ${metric.accent} bg-clip-text text-transparent`}>
               {metric.value}
             </div>
-            <div className="mt-3 font-display font-semibold text-sm sm:text-base text-white">
+            <div className="mt-2 sm:mt-3 font-display font-semibold text-xs sm:text-base text-white">
               {metric.label}
             </div>
-            <div className="mt-1 text-xs text-zinc-400 font-mono">
+            <div className="mt-0.5 sm:mt-1 text-[11px] sm:text-xs text-zinc-400 font-mono">
               {metric.subtext}
             </div>
           </motion.div>
@@ -120,7 +120,7 @@ export function About() {
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
         variants={containerVariants}
-        className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4"
       >
         {pillars.map((pillar, idx) => {
           const Icon = pillar.icon;
@@ -128,16 +128,16 @@ export function About() {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="p-6 rounded-2xl liquid-glass-interactive flex flex-col justify-between group"
+              className="p-5 sm:p-6 rounded-2xl liquid-glass-interactive flex flex-col justify-between group"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:bg-white/15 transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
-                  <Icon size={20} />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:bg-white/15 transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
+                  <Icon size={18} />
                 </div>
-                <h3 className="mt-4 font-display font-semibold text-base text-white">
+                <h3 className="mt-3 sm:mt-4 font-display font-semibold text-sm sm:text-base text-white">
                   {pillar.title}
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed">
                   {pillar.description}
                 </p>
               </div>

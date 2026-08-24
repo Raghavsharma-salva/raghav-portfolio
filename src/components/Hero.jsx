@@ -75,7 +75,7 @@ export function Hero({ onOpenResume, onOpenCommandPalette, onOpenTerminal }) {
           {/* Bold Silver/White Monochromatic Headline */}
           <motion.h1
             variants={itemVariants}
-            className="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.03] text-white"
+            className="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[1.06] text-white"
           >
             Computer Science <br className="hidden sm:inline" />
             <span className="bg-gradient-to-b from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
@@ -86,7 +86,7 @@ export function Hero({ onOpenResume, onOpenCommandPalette, onOpenTerminal }) {
           {/* Narrative Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="mt-6 sm:mt-8 max-w-xl text-base sm:text-lg text-zinc-300 leading-relaxed font-normal"
+            className="mt-5 sm:mt-8 max-w-xl text-sm sm:text-base md:text-lg text-zinc-300 leading-relaxed font-normal"
           >
             2nd Year B.Tech CSE student at Lovely Professional University. Building software, experimenting with systems, Linux, PostgreSQL, and solving problems with C++ and DSA.
           </motion.p>
@@ -94,28 +94,28 @@ export function Hero({ onOpenResume, onOpenCommandPalette, onOpenTerminal }) {
           {/* Action CTAs */}
           <motion.div
             variants={itemVariants}
-            className="mt-8 sm:mt-10 flex flex-wrap items-center gap-3 sm:gap-4"
+            className="mt-6 sm:mt-10 flex flex-wrap items-center gap-2.5 sm:gap-4 w-full sm:w-auto"
           >
             {/* Primary CTA */}
             <button
               onClick={() => scrollTo('projects')}
-              className="group relative inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white text-black font-semibold text-sm sm:text-base hover:bg-zinc-200 shadow-2xl shadow-white/15 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="group relative inline-flex items-center justify-center gap-2.5 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full bg-white text-black font-semibold text-xs sm:text-base hover:bg-zinc-200 shadow-2xl shadow-white/15 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer w-full min-[420px]:w-auto"
               data-cursor="pointer"
             >
               <span>View Projects</span>
-              <div className="w-7 h-7 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-x-1 transition-transform">
-                <ArrowDown size={15} />
+              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                <ArrowDown size={14} />
               </div>
             </button>
 
             {/* Secondary CTA */}
             <button
               onClick={() => scrollTo('contact')}
-              className="group inline-flex items-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full liquid-glass hover:border-red-500/30 text-white font-medium text-sm sm:text-base transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="group inline-flex items-center justify-center gap-2 sm:gap-2.5 px-5 sm:px-8 py-3 sm:py-4 rounded-full liquid-glass hover:border-red-500/30 text-white font-medium text-xs sm:text-base transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer w-full min-[420px]:w-auto"
               data-cursor="pointer"
             >
               <span>Let's Connect</span>
-              <ArrowUpRight size={16} className="text-zinc-400 group-hover:text-red-400 transition-colors" />
+              <ArrowUpRight size={15} className="text-zinc-400 group-hover:text-red-400 transition-colors" />
             </button>
 
             {/* Direct Resume CTA */}
@@ -124,10 +124,10 @@ export function Hero({ onOpenResume, onOpenCommandPalette, onOpenTerminal }) {
                 sound.playGlassClick();
                 onOpenResume();
               }}
-              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full text-zinc-400 hover:text-white text-sm font-mono transition-colors hover:bg-white/[0.04]"
+              className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-full text-zinc-400 hover:text-white text-xs sm:text-sm font-mono transition-colors hover:bg-white/[0.04] w-full min-[420px]:w-auto"
               data-cursor="pointer"
             >
-              <Code2 size={15} className="text-zinc-400" />
+              <Code2 size={14} className="text-zinc-400" />
               <span>Resume</span>
             </button>
           </motion.div>

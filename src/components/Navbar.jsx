@@ -42,7 +42,7 @@ export function Navbar({ activeSection, isScrolled, onOpenResume }) {
   return (
     <header className="fixed top-0 left-0 right-0 z-40 flex justify-center px-3 sm:px-6 py-3 sm:py-5 pointer-events-none">
       <nav
-        className={`pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 ${
+        className={`pointer-events-auto flex items-center justify-between gap-2 sm:gap-6 px-3 sm:px-6 py-1.5 sm:py-2.5 rounded-full transition-all duration-300 ${
           isScrolled
             ? 'liquid-glass-elevated border-white/20'
             : 'liquid-glass'
@@ -56,7 +56,7 @@ export function Navbar({ activeSection, isScrolled, onOpenResume }) {
             e.preventDefault();
             handleNavClick('hero');
           }}
-          className="flex items-center gap-2.5 group cursor-pointer focus:outline-none shrink-0"
+          className="flex items-center gap-2 sm:gap-2.5 group cursor-pointer focus:outline-none shrink-0"
           data-cursor="pointer"
         >
           <div className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-b from-white via-zinc-300 to-zinc-600 p-[1px] shadow-sm shrink-0">
@@ -67,7 +67,7 @@ export function Navbar({ activeSection, isScrolled, onOpenResume }) {
             <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-red-500 shadow-sm shadow-red-500/80 ring-2 ring-[#050507]" />
           </div>
           <span className="font-display font-semibold text-xs sm:text-sm tracking-tight text-white/90 group-hover:text-white transition-colors flex items-center gap-1.5">
-            <span>Raghav<span className="hidden sm:inline"> Sharma</span></span>
+            <span>Raghav<span className="hidden min-[400px]:inline"> Sharma</span></span>
             <span className="w-1.5 h-1.5 rounded-full bg-red-500 hidden sm:inline-block shadow-sm shadow-red-500/80" />
           </span>
         </a>
@@ -99,14 +99,14 @@ export function Navbar({ activeSection, isScrolled, onOpenResume }) {
         </div>
 
         {/* Right CTA Actions: Let's Talk + Mobile Menu */}
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={() => handleNavClick('contact')}
-            className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full text-xs font-semibold text-black bg-white hover:bg-zinc-200 shadow-md shadow-white/10 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer shrink-0"
+            className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold text-black bg-white hover:bg-zinc-200 shadow-md shadow-white/10 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer shrink-0 whitespace-nowrap"
             data-cursor="pointer"
           >
             <span>Let's Talk</span>
-            <ArrowUpRight size={14} />
+            <ArrowUpRight size={13} className="shrink-0" />
           </button>
 
           {/* Mobile Menu Button */}
@@ -115,7 +115,7 @@ export function Navbar({ activeSection, isScrolled, onOpenResume }) {
               sound.playGlassClick();
               setMobileMenuOpen(!mobileMenuOpen);
             }}
-            className="lg:hidden p-2 rounded-full text-zinc-300 hover:text-white bg-white/5 border border-white/10 transition-colors"
+            className="lg:hidden p-1.5 sm:p-2 rounded-full text-zinc-300 hover:text-white bg-white/5 border border-white/10 transition-colors shrink-0"
             aria-label="Toggle navigation menu"
             data-cursor="pointer"
           >
