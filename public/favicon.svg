@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#0A0B10"/>
+  <rect x="1" y="1" width="62" height="62" rx="15" stroke="url(#borderGlow)" stroke-width="2"/>
+  <path d="M20 18H33C38.5228 18 43 22.4772 43 28C43 33.5228 38.5228 38 33 38H20V18Z" stroke="url(#brandGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 18V46" stroke="url(#brandGrad)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M31 38L43 46" stroke="url(#brandGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="43" cy="20" r="3" fill="#6366F1"/>
+  <defs>
+    <linearGradient id="brandGrad" x1="20" y1="18" x2="44" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#818CF8"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="borderGlow" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#818CF8" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#34D399" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+</svg>
