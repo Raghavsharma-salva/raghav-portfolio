@@ -2,8 +2,11 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FileText, Download, Eye, X, GraduationCap, Code2, Phone, Mail, Award, CheckCircle2 } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 
 export function ResumeSection({ isModalOpen, onToggleModal }) {
+  useBodyScrollLock(isModalOpen);
+
   const handleDownload = () => {
     // Generate formatted printable resume
     const printWindow = window.open('', '_blank');
@@ -160,7 +163,11 @@ export function ResumeSection({ isModalOpen, onToggleModal }) {
       {/* Interactive Full Resume Viewer Modal */}
       <AnimatePresence>
         {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto overscroll-contain"
+            data-lenis-prevent="true"
+            onWheel={(e) => e.stopPropagation()}
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -174,7 +181,9 @@ export function ResumeSection({ isModalOpen, onToggleModal }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: 'spring', damping: 26, stiffness: 300 }}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl liquid-glass-elevated p-6 sm:p-10 shadow-2xl z-10 border border-white/20"
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl liquid-glass-elevated p-6 sm:p-10 shadow-2xl z-10 border border-white/20 overscroll-contain"
+              data-lenis-prevent="true"
+              onWheel={(e) => e.stopPropagation()}
             >
               {/* Modal Top Actions */}
               <div className="flex items-center justify-between pb-6 border-b border-white/10">

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, FileText, Command } from 'lucide-react';
-import { AudioToggle } from './AudioToggle';
+import { Menu, X, ArrowUpRight, FileText } from 'lucide-react';
 import { sound } from '../utils/audio';
 import { scrollToSection } from '../utils/scroll';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 
 const NAV_ITEMS = [
   { id: 'hero', label: 'Home' },
@@ -16,13 +16,13 @@ const NAV_ITEMS = [
   { id: 'contact', label: 'Contact' },
 ];
 
-export function Navbar({ activeSection, isScrolled, onOpenResume, onOpenCommandPalette }) {
+export function Navbar({ activeSection, isScrolled, onOpenResume }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setMobileMenuOpen(false);
       }
     };
@@ -30,14 +30,8 @@ export function Navbar({ activeSection, isScrolled, onOpenResume, onOpenCommandP
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Prevent scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  }, [mobileMenuOpen]);
+  // Prevent background scroll when mobile menu is open
+  useBodyScrollLock(mobileMenuOpen);
 
   const handleNavClick = (id) => {
     sound.playGlassClick();
@@ -48,7 +42,7 @@ export function Navbar({ activeSection, isScrolled, onOpenResume, onOpenCommandP
   return (
     <header className="fixed top-0 left-0 right-0 z-40 flex justify-center px-3 sm:px-6 py-3 sm:py-5 pointer-events-none">
       <nav
-        className={`pointer-events-auto flex items-center justify-between gap-2 sm:gap-4 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 ${
+        className={`pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 ${
           isScrolled
             ? 'liquid-glass-elevated border-white/20'
             : 'liquid-glass'
@@ -62,7 +56,7 @@ export function Navbar({ activeSection, isScrolled, onOpenResume, onOpenCommandP
             e.preventDefault();
             handleNavClick('hero');
           }}
-          className="flex items-center gap-2.5 group cursor-pointer focus:outline-none"
+          className="flex items-center gap-2.5 group cursor-pointer focus:outline-none shrink-0"
           data-cursor="pointer"
         >
           <div className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-b from-white via-zinc-300 to-zinc-600 p-[1px] shadow-sm shrink-0">
@@ -86,7 +80,7 @@ export function Navbar({ activeSection, isScrolled, onOpenResume, onOpenCommandP
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`relative px-3 py-1 rounded-full text-xs font-medium tracking-wide transition-colors ${
+                className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-colors ${
                   isActive ? 'text-white' : 'text-zinc-400 hover:text-zinc-200'
                 }`}
                 data-cursor="pointer"
@@ -104,41 +98,15 @@ export function Navbar({ activeSection, isScrolled, onOpenResume, onOpenCommandP
           })}
         </div>
 
-        {/* Right CTA Actions: Sound Toggle + Cmd+K + Resume + Contact */}
-        <div className="flex items-center gap-1.5 sm:gap-2">
-          {/* Audio Feedback Synthesizer Toggle */}
-          <AudioToggle />
-
-          {/* Quick Cmd+K Search Trigger */}
-          <button
-            onClick={onOpenCommandPalette}
-            className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full liquid-glass hover:bg-white/10 text-zinc-300 hover:text-white text-xs font-mono transition-colors"
-            title="Open Command Palette (Cmd+K / Ctrl+K)"
-            data-cursor="pointer"
-          >
-            <Command size={12} />
-            <kbd className="px-1 py-0.2 rounded bg-white/10 text-[10px] text-zinc-400">⌘K</kbd>
-          </button>
-
-          <button
-            onClick={() => {
-              sound.playGlassClick();
-              onOpenResume();
-            }}
-            className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-zinc-300 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/25 transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
-            data-cursor="pointer"
-          >
-            <FileText size={12} className="text-zinc-400" />
-            <span>CV</span>
-          </button>
-
+        {/* Right CTA Actions: Let's Talk + Mobile Menu */}
+        <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={() => handleNavClick('contact')}
-            className="inline-flex items-center gap-1 px-3 sm:px-4 py-1.5 rounded-full text-xs font-medium text-black bg-white hover:bg-zinc-200 shadow-md shadow-white/10 transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full text-xs font-semibold text-black bg-white hover:bg-zinc-200 shadow-md shadow-white/10 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer shrink-0"
             data-cursor="pointer"
           >
             <span>Let's Talk</span>
-            <ArrowUpRight size={13} />
+            <ArrowUpRight size={14} />
           </button>
 
           {/* Mobile Menu Button */}
@@ -164,7 +132,9 @@ export function Navbar({ activeSection, isScrolled, onOpenResume, onOpenCommandP
             animate={{ opacity: 1, backdropFilter: 'blur(20px)' }}
             exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 bg-[#07080c]/95 flex flex-col justify-between p-6 sm:p-8 pointer-events-auto lg:hidden"
+            className="fixed inset-0 z-50 bg-[#07080c]/95 flex flex-col justify-between p-6 sm:p-8 pointer-events-auto lg:hidden overscroll-contain overflow-y-auto"
+            data-lenis-prevent="true"
+            onWheel={(e) => e.stopPropagation()}
           >
             {/* Mobile Header */}
             <div className="flex items-center justify-between pt-2">

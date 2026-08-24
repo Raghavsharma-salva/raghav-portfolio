@@ -101,7 +101,6 @@ export function App() {
         activeSection={activeSection}
         isScrolled={isScrolled}
         onOpenResume={() => setIsResumeModalOpen(true)}
-        onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
       />
 
       {/* Main Content Sections */}

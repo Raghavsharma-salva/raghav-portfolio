@@ -19,10 +19,12 @@ import {
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 import { PERSONAL_INFO } from '../data/portfolioData';
-
 import { scrollToSection as scrollHelper } from '../utils/scroll';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 
 export function CommandPalette({ isOpen, onClose, onOpenResume, onOpenTerminal, onShowToast }) {
+  useBodyScrollLock(isOpen);
+
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [soundEnabled, setSoundEnabled] = useState(() => sound.isEnabled());
@@ -331,7 +333,9 @@ export function CommandPalette({ isOpen, onClose, onOpenResume, onOpenTerminal, 
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: -10 }}
           transition={{ type: 'spring', damping: 28, stiffness: 340 }}
-          className="relative w-full max-w-2xl rounded-3xl liquid-glass-elevated border border-white/20 shadow-2xl overflow-hidden z-10"
+          className="relative w-full max-w-2xl rounded-3xl liquid-glass-elevated border border-white/20 shadow-2xl overflow-hidden z-10 overscroll-contain"
+          data-lenis-prevent="true"
+          onWheel={(e) => e.stopPropagation()}
         >
           {/* Top Search Input Box */}
           <div className="relative flex items-center px-5 sm:px-6 py-4 border-b border-white/10 bg-white/[0.02]">
@@ -365,7 +369,11 @@ export function CommandPalette({ isOpen, onClose, onOpenResume, onOpenTerminal, 
           </div>
 
           {/* Command List Results */}
-          <div className="max-h-[60vh] overflow-y-auto p-3 sm:p-4 space-y-4">
+          <div
+            className="max-h-[60vh] overflow-y-auto p-3 sm:p-4 space-y-4 overscroll-contain"
+            data-lenis-prevent="true"
+            onWheel={(e) => e.stopPropagation()}
+          >
             {filteredCommands.length === 0 ? (
               <div className="py-12 text-center text-zinc-500 font-mono text-xs">
                 No matching actions found for "{query}"

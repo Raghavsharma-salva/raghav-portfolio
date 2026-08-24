@@ -3,8 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal as TerminalIcon, X, Minimize2, Maximize2, CornerDownLeft } from 'lucide-react';
 import { sound } from '../utils/audio';
 import { PERSONAL_INFO, PROJECTS, CERTIFICATIONS, SKILL_CATEGORIES } from '../data/portfolioData';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 
 export function TerminalDrawer({ isOpen, onToggle, onOpenResume }) {
+  useBodyScrollLock(isOpen);
+
   const [input, setInput] = useState('');
   const [history, setHistory] = useState([
     { type: 'system', text: 'Raghav Sharma [Systems CLI v2.4.0-posix]' },
@@ -227,7 +230,11 @@ LinkedIn: ${PERSONAL_INFO.linkedin}`,
       {/* Terminal Modal / Drawer */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 pointer-events-auto">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 pointer-events-auto overscroll-contain"
+            data-lenis-prevent="true"
+            onWheel={(e) => e.stopPropagation()}
+          >
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -243,9 +250,11 @@ LinkedIn: ${PERSONAL_INFO.linkedin}`,
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: 'spring', damping: 28, stiffness: 320 }}
-              className={`relative w-full rounded-3xl liquid-glass-elevated border border-white/20 hover:border-red-500/30 shadow-2xl flex flex-col overflow-hidden z-10 ${
+              className={`relative w-full rounded-3xl liquid-glass-elevated border border-white/20 hover:border-red-500/30 shadow-2xl flex flex-col overflow-hidden z-10 overscroll-contain ${
                 isMaximized ? 'max-w-6xl h-[90vh]' : 'max-w-3xl h-[560px]'
               }`}
+              data-lenis-prevent="true"
+              onWheel={(e) => e.stopPropagation()}
             >
               {/* Terminal Window Bar */}
               <div className="px-5 py-3.5 border-b border-white/10 bg-black/60 flex items-center justify-between select-none">
